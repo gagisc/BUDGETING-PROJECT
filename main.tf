@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1" # i might use calgary in the future
+  region = "us-east-1" # calgary-west-1 is planned for a future change
 }
 
 ########################
@@ -85,15 +85,11 @@ resource "aws_budgets_budget" "monthly_budget" {
   time_unit    = "MONTHLY"
 
   notification {
-    comparison_operator = "GREATER_THAN"
-    threshold           = 100
-    threshold_type      = "PERCENTAGE"
-    notification_type   = "ACTUAL"
-
-    subscriber {
-      subscription_type = "EMAIL"
-      address           = "gagisc@example.com" # real email goes here
-    }
+    comparison_operator        = "GREATER_THAN"
+    threshold                  = 100
+    threshold_type             = "PERCENTAGE"
+    notification_type          = "ACTUAL"
+    subscriber_email_addresses = ["gagisc@example.com"]
   }
 }
 

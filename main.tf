@@ -85,15 +85,11 @@ resource "aws_budgets_budget" "monthly_budget" {
   time_unit    = "MONTHLY"
 
   notification {
-    comparison_operator = "GREATER_THAN"
-    threshold           = 100
-    threshold_type      = "PERCENTAGE"
-    notification_type   = "ACTUAL"
-
-    subscriber {
-      subscription_type = "EMAIL"
-      address           = "gagisc@example.com" # real email goes here
-    }
+    comparison_operator        = "GREATER_THAN"
+    threshold                  = 100
+    threshold_type             = "PERCENTAGE"
+    notification_type          = "ACTUAL"
+    subscriber_email_addresses = ["gagisc@example.com"]
   }
 }
 

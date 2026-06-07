@@ -12,7 +12,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1" # i might use calgary in the future
+  region = "us-east-1" # calgary-west-1 is planned for a future change
 }
 
 ########################
